@@ -1,11 +1,6 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "label": "Learn Angular",
-      "completed": false
-    },
-    {
       "id": "2",
       "label": "Learn spring boot",
       "completed": true
@@ -19,16 +14,6 @@
       "id": "4",
       "label": "Learn c++",
       "completed": true
-    },
-    {
-      "label": "asfsad",
-      "completed": true,
-      "id": "LLHsfoo"
-    },
-    {
-      "label": "asfsad",
-      "completed": false,
-      "id": "rJl9Xv-"
     }
   ]
 }

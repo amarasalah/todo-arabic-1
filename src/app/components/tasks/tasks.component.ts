@@ -39,7 +39,7 @@ export class TasksComponent implements OnInit {
 
 
   }
-
+  
   persistTask(){
     this.taskservice.persist(this.myTask).subscribe((task)=>{
       this.tasks = [task,...this.tasks]})
