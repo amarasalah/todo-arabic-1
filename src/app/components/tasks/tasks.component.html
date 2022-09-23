@@ -14,13 +14,14 @@
   <div class="col-md-6 mx-auto">
     <div class="form-group">
       <label for="label" class="fw-bold text-capitalize h4 ">label</label>
-      <input type="text" class="form-control mt-1" id="label">
+      <input [(ngModel)]='myTask.label' type="text" class="form-control mt-1" id="label">
     </div>
+   
 
-    <div class="from-check my-2 fw-bold "><label for="" class="form-check-label"></label><input type="checkbox" name="" id="" class="form-check-input me-2 ">Completed
+    <div class="from-check my-2 fw-bold "><label for="" class="form-check-label"></label><input [(ngModel)]="myTask.completed" type="checkbox" name="" id="" class="form-check-input me-2 ">Completed
     </div>
     <div class="d-grid gap-3">
-    <button class="btn btn-success mb" type="button"><i class="fas fa-paper-plane me-2"></i>New Task</button></div>
+    <button class="btn btn-success mb" (click)="persistTask()" type="button"><i class="fas fa-paper-plane me-2"></i>New Task</button></div>
 
   </div>
 </div>
@@ -33,6 +34,24 @@
 
 <div class="row">
   <div class="col-md-6 mx-auto mt-3 fw-bold h4">
-    List of Tasks
+<ul class="list-group">
+  
+
+  <li *ngFor="let task of tasks" class="list-group-item d-flex justify-content-between align-items-center">
+    <button class="btn btn btn-warning"><i class="fas fa-pen"></i></button><span class="txt">
+    {{ task.label }}</span>
+    <span [ngClass]="{
+      'bg-info':task.completed,
+      'bg-secondary':!task.completed }" class="badge bg-secondary badge-pill me-2" > 
+      <i 
+        [ngClass]="{'fa-thumbs-up d-block mb-1 ':task.completed,
+          'fa-thumbs-down d-block mt-1':!task.completed }" class=" fas " aria-hidden="true"></i>
+     </span>
+     <button (click)="deleteTask(task.id)" class="btn btn-sm bg-danger"><i class="fas fa-trash text-white"></i></button>
+  </li>
+
+  
+</ul>
   </div>
+
 </div>
